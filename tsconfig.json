@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "esModuleInterop": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "types": ["bun-types", "web"]
+  },
+  "include": [
+    "src"
+  ]
+}

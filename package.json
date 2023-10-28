@@ -1,0 +1,39 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "author": "Owen Crewe",
+  "license": "MIT",
+  "scripts": {
+    "build": "bun react-scripts build",
+    "dev": "bun react-scripts start",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "hono": "^3.8.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-scripts": "^5.0.1",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "@types/web": "^0.0.119",
+    "bun-types": "^1.0.7",
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
