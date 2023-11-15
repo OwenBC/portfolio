@@ -6,7 +6,5 @@
     "jsx": "react-jsx",
     "types": ["bun-types", "web"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
