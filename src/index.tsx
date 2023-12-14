@@ -1,26 +1,11 @@
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { App } from './App'
-import { Main as Layout } from './components/layout'
-import './index.css'
+import './index.css';
+import { app_routes } from './routes';
 
-const router = createBrowserRouter([
-  {
-    element: (
-      <Layout>
-        <Outlet />
-      </Layout>
-    ),
-    children: [
-      {
-        path: '/',
-        element: <App />
-      }
-    ]
-  }
-])
+const router = createBrowserRouter(app_routes);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <RouterProvider router={router} />
-)
+);
