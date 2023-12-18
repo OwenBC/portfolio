@@ -1,5 +1,8 @@
 // import { motion } from 'framer-motion';
 import { AiFillGithub } from 'react-icons/ai'
+import { FaLinkedinIn } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
+
 import { Link } from 'react-router-dom'
 
 import { Button } from '../common';
@@ -22,10 +25,10 @@ export const Navbar = ({ items }: navbarProps) => {
           {items.map(item => <NavItem label={item.label} path={item.path} />)}
         </div>
 
-        <div className="mx-auto flex items-center justify-between">
-          <Button to="https://github.com/owenbc/portfolio" newTab>
-            <AiFillGithub className="h-6 w-6 m500:h-4 m500:w-4" />
-          </Button>
+        <div className="mx-auto flex space-x-2 items-center justify-between">
+          <Button icon={AiFillGithub} to="https://github.com/owenbc/portfolio" newTab />
+          <Button icon={FaLinkedinIn} to="https://linkedin.com/in/ocrewe/" newTab />
+          <Button icon={MdOutlineEmail} to="mailto:ocrewe04@gmail.com" newTab />
         </div>
       </div>
     </nav>

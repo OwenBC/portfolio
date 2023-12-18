@@ -1,10 +1,10 @@
-import { ReactNode } from 'react'
-import { pages } from '../../routes'
-import { Navbar } from '../navbar'
+import { ReactNode } from 'react';
+import { pages } from '../../routes';
+import { Navbar } from '../navbar';
 
-interface MainProps {
+export interface MainProps {
   children: ReactNode
-}
+};
 
 export const Main = ({ children }: MainProps) => (
   <>
@@ -13,4 +13,4 @@ export const Main = ({ children }: MainProps) => (
     <div id="drawer" />
     <div id="modal" />
   </>
-)
+);

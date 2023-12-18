@@ -1,31 +1,42 @@
 // import { Link } from "react-router-dom";
+import { FaAws } from "react-icons/fa";
 
-import { SectionHeader } from "../common/SectionHeader"
+import { Button, HistorySection, SectionHeader, SpaceBetween, TextSection } from "../common"
+import { Article } from "../layout"
 
 export const About = () => {
   return (
-    <div className="min-h-[100dvh] w-[full-250px] bg-[#c9dcd8] px-5 pt-[80px] m800:ml-[180px] m800:w-[full-180px] m600:m-0 m600:w-full m500:pt-16">
-      <div className="mx-auto w-[700px] py-20 m1000:w-[500px] m750:w-[350px] m400:w-full m400:py-16">
-        <SectionHeader size="xl">About</SectionHeader>
-        <SectionHeader>About</SectionHeader>
-        <SectionHeader size="3xl">About</SectionHeader>
+    <Article>
+      <TextSection>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est 
+        tortor, aliquam sit amet mi sed, vestibulum porta libero. Donec 
+        vestibulum, sapien quis posuere vulputate, massa orci gravida leo, 
+        vitae ultricies dui ligula eu tortor. Integer congue eros elit, sed 
+        efficitur metus egestas vitae. Phasellus non lorem in quam congue 
+        dictum. Quisque nibh eros, iaculis nec dapibus semper, sollicitudin sit 
+        amet velit. Vivamus justo nibh, auctor ut pellentesque a, tempor id 
+        elit. Ut aliquet cursus ultrices. Phasellus quis elementum ipsum. 
+        Vivamus sagittis aliquet rhoncus. Nulla nibh purus, gravida vitae 
+        congue a, fringilla ac nulla.
+      </TextSection>
 
-        <div className="mt-8 font-bold leading-relaxed">
-          Neobrutalism components is a collection of type-safe components written
-          in React and Tailwind.
-          <br />
-          <br />
-          Neobrutalism is a mix of regular brutalism in web design and more modern
-          typography, illustration and animation standards. <br /> Neobrutalism
-          refuses the usual components of UX-UI design and embraces uncomfortable
-          design elements, and it is more fearless to use distinctive color
-          palettes.
-          <br />
-          <br />I created this collection of components for people who want to
-          learn more about neobrutalism style, and to help them get started with
-          creating neobrutalism layouts.
-        </div>
-      </div>
-    </div>
+      <SectionHeader>Experience</SectionHeader>
+
+      <SectionHeader size='xl'>
+        <SpaceBetween dir='h'>
+          <Button icon={FaAws} roundness='full'/>
+          <div className="whitespace-nowrap pl-2">Amazon Web Services</div>
+        </SpaceBetween>
+      </SectionHeader>
+      
+      <HistorySection
+        heading='Software Dev Engineer Intern'
+      >
+        <ul>
+          <li>Apple</li>
+          <li>Banana</li>
+        </ul>
+      </HistorySection>
+    </Article>
   )
 };
