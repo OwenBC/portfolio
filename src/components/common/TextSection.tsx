@@ -5,5 +5,5 @@ export interface TextSectionProps {
 };
 
 export const TextSection = ({ children }: TextSectionProps) => (
-  <div className="flex-none mb-8 font-bold leading-relaxed">{children}</div>
+  <div className="flex-none mb-5 font-bold leading-relaxed">{children}</div>
 );

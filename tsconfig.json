@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "strict": true,
     "jsx": "react-jsx",
-    "types": ["bun-types", "web"]
+    "types": ["web"]
   },
   "include": ["src"]
 }

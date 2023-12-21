@@ -30,11 +30,19 @@ export const About = () => {
       </SectionHeader>
       
       <HistorySection
-        heading='Software Dev Engineer Intern'
+        heading='Software Dev Engineer - DynamoDB'
+        secondaryHeading={<i>Jun. 2024 - </i>}
       >
-        <ul>
-          <li>Apple</li>
-          <li>Banana</li>
+      </HistorySection>
+
+      <HistorySection
+        heading='Software Dev Engineer Intern - DynamoDB'
+        secondaryHeading={<i>Jan. 2023 - Sep. 2023</i>}
+      >
+        <ul className='list-disc'>
+          <li>Deployed environment to clusters to aggregate and log status information.</li>
+          <li>Developed API to fetch cluster status and calculate health metrics.</li>
+          <li>Created a full-stack dev tool to view, create, delete, and manage cluster infrastructure.</li>
         </ul>
       </HistorySection>
     </Article>
