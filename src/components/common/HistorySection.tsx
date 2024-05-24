@@ -1,8 +1,8 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { ReactNode, useState } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import { GoDot, GoDotFill } from "react-icons/go";
+import { ButtonIcon } from "./ButtonIcon";
 
-import { Button } from './Button';
-import { ButtonIcon } from './ButtonIcon';
 import { SectionHeader } from './SectionHeader';
 import { SpaceBetween } from './SpaceBetween';
 import { TextSection } from './TextSection';
@@ -19,26 +19,20 @@ export const HistorySection = ({ heading, secondaryHeading, children }: HistoryS
   return (
     <div className="relative">
       <SpaceBetween dir='h'>
-        <SectionHeader size='lg'>
+        <SectionHeader size='xl' className="mb-2">
           <SpaceBetween dir='h'>
             <div className='pl-0.5'>
-              <Button
-                roundness='full'
-                onClick={() => {
-                  setIsActiveDropdown(!isActiveDropdown)
-                }}
+              <motion.button
+                className={'flex rounded-full bg-black p-3'}
+                initial={{ scale: 0.3 }}
+                whileTap={{ scale: 0.3 }}
+                whileHover={{ scale: 0.5 }}
+                onClick={() => setIsActiveDropdown(!isActiveDropdown)}
               >
-                <ButtonIcon
-                  icon={FaChevronDown}
-                  size='sm'
-                  style={{
-                    transform: `rotate(${isActiveDropdown ? '180deg' : '0'})`,
-                  }}
-                  className={'transition-transform ease-in-out'}
-                />
-              </Button>
+                <ButtonIcon icon={isActiveDropdown ? GoDotFill : GoDot}/>
+              </motion.button>
             </div>
-            <div className="whitespace-nowrap pl-2.5">{heading}</div>
+            <div className="whitespace-nowrap pl-2">{heading}</div>
           </SpaceBetween>
         </SectionHeader>
         <div className='grow rounded-full mb-4 h-0.5 bg-black' />
@@ -47,21 +41,23 @@ export const HistorySection = ({ heading, secondaryHeading, children }: HistoryS
         </TextSection>
       </SpaceBetween>
 
-      <div
-        style={{
-          top: isActiveDropdown ? '50px' : '30px',
-          opacity: isActiveDropdown ? '1' : '0',
-          visibility: isActiveDropdown ? 'visible' : 'hidden',
-        }}
-        className="absolute left-0 top-[30px] w-[700px] transition-all"
-      >
-        <div className='mx-auto flex justify-start'>
-          <div className='flex-initial rounded-full mx-5 min-w-1 bg-black' />
-          <div className='flex-none pl-8 font-bold text-md'>
-            {children}
-          </div>
-        </div>
-      </div>
+      {children && (
+        <AnimatePresence>
+          {isActiveDropdown && (
+            <motion.div
+              initial={{ marginTop: -20, opacity: 0 }}
+              animate={{ marginTop: 0, opacity: 1 }}
+              exit={{ marginTop: -20, opacity: 0 }}
+              className='mx-auto flex justify-start'
+            >
+              <div className='flex-initial rounded-full mx-5 min-w-1 bg-black' />
+              <div className='flex-none pl-8 font-bold text-md'>
+                {children}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </div>
   )
 }

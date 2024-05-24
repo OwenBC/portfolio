@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import { FaAws } from "react-icons/fa";
 
-import { Button, HistorySection, SectionHeader, SpaceBetween, TextSection } from "../common"
+import { Button, HistorySection, SectionHeader, SpaceBetween, TextSection, URlIcon } from "../common"
 import { Article } from "../layout"
 
 export const About = () => {
@@ -20,9 +20,9 @@ export const About = () => {
         congue a, fringilla ac nulla.
       </TextSection>
 
-      <SectionHeader>Experience</SectionHeader>
+      <SectionHeader size='3xl' className='mt-14'>Experience</SectionHeader>
 
-      <SectionHeader size='xl'>
+      <SectionHeader>
         <SpaceBetween dir='h'>
           <Button icon={FaAws} roundness='full'/>
           <div className="whitespace-nowrap pl-2">Amazon Web Services</div>
@@ -45,6 +45,37 @@ export const About = () => {
           <li>Created a full-stack dev tool to view, create, delete, and manage cluster infrastructure.</li>
         </ul>
       </HistorySection>
+
+      <SectionHeader className="mt-5">
+        <SpaceBetween dir='h'>
+          <Button roundness='full'>
+            <URlIcon url='https://www.vertigis.com/wp-content/uploads/2021/03/favicon-icon.svg' />
+          </Button>
+          <div className="whitespace-nowrap pl-2">VertiGIS North America</div>
+        </SpaceBetween>
+      </SectionHeader>
+
+      <HistorySection
+        heading='Quality Assurance Analyst Intern'
+        secondaryHeading={<i>Jan. 2021 - Apr. 2021</i>}
+      >
+        <ul className='list-disc'>
+          <li>Shipped 2 versions of GeoCortex Studio Web.</li>
+          <li>Performed quality testing on dozens of new features and bugs.</li>
+          <li>Managed and updated hundreds of user tests and the accompanying automated test suite.</li>
+        </ul>
+      </HistorySection>
+
+      <SectionHeader size='3xl' className='mt-14'>Education</SectionHeader>
+
+      <SectionHeader>
+        <SpaceBetween dir='h'>
+          <Button roundness='full' className='bg-orange'>
+            <URlIcon url='https://www.uvic.ca/assets/core-4-1/img/favicon-32.png' />
+          </Button>
+          <div className="whitespace-nowrap pl-2">University of Victoria</div>
+        </SpaceBetween>
+      </SectionHeader>
     </Article>
   )
 };
