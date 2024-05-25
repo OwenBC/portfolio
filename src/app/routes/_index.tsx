@@ -1,10 +1,9 @@
-// import { Link } from "react-router-dom";
 import { FaAws } from "react-icons/fa";
 
-import { Button, HistorySection, SectionHeader, SpaceBetween, TextSection, URlIcon } from "../common"
-import { Article } from "../layout"
+import { Button, HistorySection, SectionHeader, SpaceBetween, TextSection, URlIcon } from "../../components/common"
+import { Article } from "../../components/layout"
 
-export const About = () => {
+export default function About() {
   return (
     <Article>
       <TextSection>
@@ -13,7 +12,7 @@ export const About = () => {
         vestibulum, sapien quis posuere vulputate, massa orci gravida leo, 
         vitae ultricies dui ligula eu tortor. Integer congue eros elit, sed 
         efficitur metus egestas vitae. Phasellus non lorem in quam congue 
-        dictum. Quisque nibh eros, iaculis nec dapibus semper, sollicitudin sit 
+        dictum. Quisque nibh eros, iaculis nec dapibus semper, sollicitudin sit
         amet velit. Vivamus justo nibh, auctor ut pellentesque a, tempor id 
         elit. Ut aliquet cursus ultrices. Phasellus quis elementum ipsum. 
         Vivamus sagittis aliquet rhoncus. Nulla nibh purus, gravida vitae 
@@ -33,6 +32,9 @@ export const About = () => {
         heading='Software Dev Engineer - DynamoDB'
         secondaryHeading={<i>Jun. 2024 - </i>}
       >
+        <ul className='list-disc'>
+          <li>Returning.</li>
+        </ul>
       </HistorySection>
 
       <HistorySection
@@ -40,9 +42,17 @@ export const About = () => {
         secondaryHeading={<i>Jan. 2023 - Sep. 2023</i>}
       >
         <ul className='list-disc'>
-          <li>Deployed environment to clusters to aggregate and log status information.</li>
-          <li>Developed API to fetch cluster status and calculate health metrics.</li>
-          <li>Created a full-stack dev tool to view, create, delete, and manage cluster infrastructure.</li>
+          <li>
+            Deployed software to test infrastructure to aggregate and log
+            status information.
+          </li>
+          <li>
+            Developed API to query test infrastructure status information.
+          </li>
+          <li>
+            Created a full-stack dev tool to view, create, delete, and manage
+            cluster infrastructure.
+          </li>
         </ul>
       </HistorySection>
 
@@ -61,8 +71,13 @@ export const About = () => {
       >
         <ul className='list-disc'>
           <li>Shipped 2 versions of GeoCortex Studio Web.</li>
-          <li>Performed quality testing on dozens of new features and bugs.</li>
-          <li>Managed and updated hundreds of user tests and the accompanying automated test suite.</li>
+          <li>
+            Performed quality testing on dozens of new features and bugs.
+          </li>
+          <li>
+            Managed and updated hundreds of user tests and the accompanying
+            automated test suite.
+          </li>
         </ul>
       </HistorySection>
 
@@ -76,6 +91,19 @@ export const About = () => {
           <div className="whitespace-nowrap pl-2">University of Victoria</div>
         </SpaceBetween>
       </SectionHeader>
+
+      <HistorySection
+        heading="Bachelor of Science in Computer Science"
+        secondaryHeading={<i>Sep. 2019 - Apr. 2024</i>}
+      >
+        <ul className='list-disc'>
+          <li>Work Experience accreditation from three Co-op terms.</li>
+          <li>
+            Jan. 2024: Switched field of study from Software Engineering to
+            Computer Science in<br/>order to enter industry sooner.
+          </li>
+        </ul>
+      </HistorySection>
     </Article>
   )
 };

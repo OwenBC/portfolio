@@ -11,10 +11,11 @@ export interface HistorySectionProps {
   children?: ReactNode;
   heading: ReactNode;
   secondaryHeading?: ReactNode;
+  defaultOpen?: boolean;
 }
 
-export const HistorySection = ({ heading, secondaryHeading, children }: HistorySectionProps) => {
-  const [isActiveDropdown, setIsActiveDropdown] = useState(true);
+export const HistorySection = ({ heading, secondaryHeading, children, defaultOpen }: HistorySectionProps) => {
+  const [isActiveDropdown, setIsActiveDropdown] = useState(defaultOpen || false);
 
   return (
     <div className="relative">

@@ -1,10 +1,20 @@
 import { ReactNode } from 'react';
-import { pages } from '../../routes';
 import { Navbar } from '../navbar';
 
 export interface MainProps {
-  children: ReactNode
+  children?: ReactNode
 };
+
+const pages = [
+  {
+    label: "About",
+    path: "/",
+  },
+  {
+    label: "Dummy",
+    path: "/dummy",
+  },
+];
 
 export const Main = ({ children }: MainProps) => (
   <>

@@ -1,8 +1,7 @@
-```
-bun install
-bun run dev
-```
+## Development
+Tech: Vercel, Vite, Remix, TypeScript, React
 
-```
-open http://localhost:3000
-```
+**Build**: `npm run build`
+**Serve**: `npm run start`
+**Dev Mode**: `npm run start`
+**Test (TODO)**: `npm run test`

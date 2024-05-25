@@ -1,6 +1,5 @@
+import { NavLink } from '@remix-run/react';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
-import { Link } from "react-router-dom"
 
 export interface navItemProps {
   label: string
@@ -8,15 +7,17 @@ export interface navItemProps {
 }
 
 export const NavItem = ({ label, path }: navItemProps) => {
-  const location = useLocation();
-
   return (
-    <Link
-      className={`font-bold px-5 ${location.pathname == path ? 'text-2xl' : 'text-xl'}`}
+    <NavLink
+      className={({ isActive }) => 
+        `font-bold px-5 ${isActive ? 'text-2xl' : 'text-xl'}`
+      }
       to={path}>
-      <motion.div whileHover={location.pathname == path ? {} : { scale: 1.2 }}>
-        {label}
-      </motion.div>
-    </Link>
+      {({ isActive }) => (
+        <motion.div whileHover={isActive ? {} : { scale: 1.2 }}>
+          {label}
+        </motion.div>
+      )}
+    </NavLink>
   );
 }

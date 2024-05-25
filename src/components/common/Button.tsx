@@ -1,7 +1,7 @@
+import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
 import React, { ReactNode } from "react";
 import { IconType } from "react-icons";
-import { Link } from "react-router-dom";
 import { ButtonIcon, ButtonIconProps } from "./ButtonIcon";
 
 import { SpaceBetween } from "./SpaceBetween";
@@ -54,7 +54,7 @@ export const Button = ({ icon, iconSize, children, className, newTab, onClick, r
   return to ? (
     <Link
       target={newTab ? "_blank" : "_self"}
-      to={to!}
+      to={to}
     >
       <ButtonWrapper {...wrapperProps}>
         {content}
