@@ -1,0 +1,26 @@
+import { useEffect, useState } from "react";
+import { useThemeDetector } from "src/util";
+
+export interface FaviconSetterProps {
+  lightPath: string;
+  darkPath: string;
+};
+
+export const FaviconSetter = ({ lightPath, darkPath }: FaviconSetterProps) => {
+  const isDarkTheme = useThemeDetector();
+  
+  useEffect(() => {
+    console.log(isDarkTheme);
+    const head = document.head || document.getElementsByTagName('head')[0];
+
+    var link = document.createElement('link'),
+      oldLink = document.getElementById('dynamic-favicon');
+    link.id = 'dynamic-favicon';
+    link.rel = 'shortcut icon';
+    link.href = isDarkTheme ? darkPath : lightPath;
+    if (oldLink) head.removeChild(oldLink);
+    head.appendChild(link);
+  }, [isDarkTheme]);
+
+  return (<></>);
+};
