@@ -6,17 +6,12 @@ import {
   Scripts,
 } from "@remix-run/react";
 import { FaviconSetter } from "src/components/common/FaviconSetter";
-import { Main } from "src/components/layout";
+import { LeftPanel } from "src/components/layout";
 
 import appStylesHref from "./app.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appStylesHref },
-  // {
-  //   rel: "icon",
-  //   href: window.matchMedia("(prefers-color-scheme: dark)").matches ? "/white_ram.ico" : "/black_ram.ico",
-  //   type: "image/ico",
-  // },
 ]
 
 export default function App() {
@@ -29,10 +24,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Main>
+        <FaviconSetter lightPath="/black_ram.ico" darkPath="/white_ram.ico" />
+        <LeftPanel>
           <Outlet />
-          <FaviconSetter lightPath="/black_ram.ico" darkPath="/white_ram.ico" />
-        </Main>
+        </LeftPanel>
 
         <Scripts />
       </body>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useThemeDetector } from "src/util";
+import { useThemeDetector } from "src/lib/themeDetector";
 
 export interface FaviconSetterProps {
   lightPath: string;
