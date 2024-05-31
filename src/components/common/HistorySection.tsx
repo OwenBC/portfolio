@@ -1,7 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode, useState } from 'react';
-import { GoDot, GoDotFill } from "react-icons/go";
-import { ButtonIcon } from "./ButtonIcon";
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import { cn } from "src/lib/utils";
 
 import { SectionHeader } from './SectionHeader';
 import { SpaceBetween } from './SpaceBetween';
@@ -16,22 +14,30 @@ export interface HistorySectionProps {
 
 export const HistorySection = ({ heading, secondaryHeading, children, defaultClosed }: HistorySectionProps) => {
   const [isActiveDropdown, setIsActiveDropdown] = useState(defaultClosed ? false : true);
+  const [contentHeight, setContentHeight] = useState('0px')
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(`${contentRef.current.scrollHeight}px`)
+    }
+  }, [isActiveDropdown])
 
   return (
-    <div className="relative">
+    <div
+      style={{ paddingBottom: isActiveDropdown ? '1.25rem' : 'initial' }}
+      className="relative transition-[paddingBottom] duration-300 ease-in-out">
       <SpaceBetween dir='h'>
         <SectionHeader size='xl' className="mb-2">
           <SpaceBetween dir='h'>
-            <div className='pl-0.5'>
-              <motion.button
-                className={'flex rounded-full bg-black p-3'}
-                initial={{ scale: 0.3 }}
-                whileTap={{ scale: 0.3 }}
-                whileHover={{ scale: 0.5 }}
+            <div className='pl-[17px]'>
+              <div
+                className={cn(
+                  "w-2.5 h-2.5 rounded-full border-black border-2 hover:scale-150 hover:border",
+                  isActiveDropdown ? "bg-black" : "bg-main"
+                )}
                 onClick={() => setIsActiveDropdown(!isActiveDropdown)}
-              >
-                <ButtonIcon icon={isActiveDropdown ? GoDotFill : GoDot}/>
-              </motion.button>
+              />
             </div>
             <div className="whitespace-nowrap pl-2">{heading}</div>
           </SpaceBetween>
@@ -43,21 +49,18 @@ export const HistorySection = ({ heading, secondaryHeading, children, defaultClo
       </SpaceBetween>
 
       {children && (
-        <AnimatePresence>
-          {isActiveDropdown && (
-            <motion.div
-              initial={{ marginTop: -20, opacity: 0 }}
-              animate={{ marginTop: 0, opacity: 1 }}
-              exit={{ marginTop: -20, opacity: 0 }}
-              className='mx-auto flex justify-start'
-            >
-              <div className='flex-initial rounded-full mx-5 min-w-1 bg-black' />
-              <div className='flex-none pl-8 font-bold text-md'>
-                {children}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          ref={contentRef}
+          style={{
+            height: isActiveDropdown ? contentHeight : '0',
+            opacity: isActiveDropdown ? '1' : '0'
+          }}
+          className='mx-auto flex justify-start transition-all duration-300 ease-in-out'>
+          <div className='flex-initial mx-5 min-w-1 bg-black' />
+          <div className='flex-none pl-8 font-bold text-md'>
+            {children}
+          </div>
+        </div>
       )}
     </div>
   )

@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import React, { ReactNode } from "react";
 import { IconType } from "react-icons";
+import { cn } from "src/lib/utils";
 import { ButtonIcon, ButtonIconProps } from "./ButtonIcon";
 
 import { SpaceBetween } from "./SpaceBetween";
@@ -21,7 +22,10 @@ export interface ButtonProps extends Omit<ButtonWrapperProps, 'children'> {
 
 const ButtonWrapper = ({ children, className, onClick }: ButtonWrapperProps) => (
   <div
-    className={`${className} cursor-pointer flex items-center justify-center rounded border-2 shadow-base border-black bg-main p-2 transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none`}
+    className={cn(
+      className,
+      "cursor-pointer flex items-center justify-center rounded border-2 shadow-base border-black bg-main p-2 transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
+    )}
     onClick={onClick}
   >
     {children}

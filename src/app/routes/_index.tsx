@@ -1,11 +1,12 @@
 import { MetaFunction } from "@remix-run/react";
 import { FaAws } from "react-icons/fa";
+import { About as page } from "src/lib/pages";
 
 import { Button, HistorySection, SectionHeader, SpaceBetween, URlIcon } from "../../components/common"
 import { Article } from "../../components/layout"
 
 export const meta: MetaFunction = () => [
-  { title: "About" }
+  { title: page.label }
 ]
 
 export default function About() {
@@ -15,40 +16,38 @@ export default function About() {
 
       <SectionHeader>
         <SpaceBetween dir='h'>
-          <Button icon={FaAws} to="https://aws.amazon.com/dynamodb/" newTab/>
+          <Button icon={FaAws} iconSize="[24px]" to="https://aws.amazon.com/dynamodb/" newTab/>
           <div className="whitespace-nowrap pl-2">Amazon Web Services</div>
         </SpaceBetween>
       </SectionHeader>
       
-      <div className="space-y-5">
-        <HistorySection
-          heading='Software Dev Engineer - DynamoDB'
-          secondaryHeading={<i>Jun. 2024 - </i>}
-        >
-          <ul className='list-disc'>
-            <li>Returning to Test Cluster Team.</li>
-          </ul>
-        </HistorySection>
+      <HistorySection
+        heading='Software Dev Engineer - DynamoDB'
+        secondaryHeading={<i>Jun. 2024 - </i>}
+      >
+        <ul className='list-disc'>
+          <li>Returning to Test Cluster Team.</li>
+        </ul>
+      </HistorySection>
 
-        <HistorySection
-          heading='Software Dev Engineer Intern - DynamoDB'
-          secondaryHeading={<i>Jan. 2023 - Sep. 2023</i>}
-        >
-          <ul className='list-disc'>
-            <li>
-              Deployed software to test infrastructure to aggregate and log
-              status information.
-            </li>
-            <li>
-              Developed API to query test infrastructure status information.
-            </li>
-            <li>
-              Created a full-stack dev tool to view, create, delete, and manage
-              cluster infrastructure.
-            </li>
-          </ul>
-        </HistorySection>
-      </div>
+      <HistorySection
+        heading='Software Dev Engineer Intern - DynamoDB'
+        secondaryHeading={<i>Jan. 2023 - Sep. 2023</i>}
+      >
+        <ul className='list-disc'>
+          <li>
+            Deployed software to test infrastructure to aggregate and log
+            status information.
+          </li>
+          <li>
+            Developed API to query test infrastructure status information.
+          </li>
+          <li>
+            Created a full-stack dev tool to view, create, delete, and manage
+            cluster infrastructure.
+          </li>
+        </ul>
+      </HistorySection>
 
       <SectionHeader className="mt-5">
         <SpaceBetween dir='h'>

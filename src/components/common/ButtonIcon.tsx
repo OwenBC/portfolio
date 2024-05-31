@@ -1,19 +1,12 @@
 import { IconBaseProps, IconType } from "react-icons"
-
-const config = {
-  size: {
-    'sm': 4,
-    'md': 6,
-    'lg': 9
-  },
-}
+import { cn } from "src/lib/utils";
 
 export interface ButtonIconProps extends IconBaseProps {
   className?: string;
-  size?: keyof typeof config.size;
+  size?: string;
   icon: IconType;
 };
 
 export const ButtonIcon = ({ className, icon: Icon, size, ...rest }: ButtonIconProps) => (
-  <Icon className={`${className} h-${config.size[size ?? 'md']} w-${config.size[size ?? 'md']}`} {...rest} />
+  <Icon className={cn(className, `h-${size} w-${size}`)} {...rest} />
 );

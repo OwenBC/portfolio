@@ -10,7 +10,7 @@ export const FaviconSetter = ({ lightPath, darkPath }: FaviconSetterProps) => {
   const isDarkTheme = useThemeDetector();
   
   useEffect(() => {
-    console.log(isDarkTheme);
+    // https://stackoverflow.com/questions/260857/changing-website-favicon-dynamically
     const head = document.head || document.getElementsByTagName('head')[0];
 
     var link = document.createElement('link'),

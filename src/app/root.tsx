@@ -5,8 +5,10 @@ import {
   Outlet,
   Scripts,
 } from "@remix-run/react";
-import { FaviconSetter } from "src/components/common/FaviconSetter";
+import { FaviconSetter } from "src/components/common";
 import { LeftPanel } from "src/components/layout";
+import { Nav } from "src/components/Nav";
+import { pages } from "src/lib/pages";
 
 import appStylesHref from "./app.css?url";
 
@@ -24,7 +26,8 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <FaviconSetter lightPath="/black_ram.ico" darkPath="/white_ram.ico" />
+        <FaviconSetter lightPath="/favicon.ico" darkPath="/favicon_white.ico" />
+        <Nav items={pages}/>
         <LeftPanel>
           <Outlet />
         </LeftPanel>

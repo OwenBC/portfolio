@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// https://medium.com/hypersphere-codes/detecting-system-theme-in-javascript-css-react-f6b961916d48
 export const useThemeDetector = () => {
   const getCurrentTheme = () => 
     typeof window !== "undefined"

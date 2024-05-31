@@ -23,7 +23,7 @@ export const LeftPanel = ({ children }: LeftPanelProps) => (
         <p className="mt-4 text-base font-base sm:text-xl">
           Software Engineer
         </p>
-        <div className="mt-32 mx-auto space-x-2 flex flex-row">
+        <div className="mt-8 mx-auto space-x-2 flex flex-row">
           <Button icon={AiFillGithub} to="https://github.com/owenbc/portfolio" newTab />
           <Button icon={FaLinkedinIn} to="https://linkedin.com/in/ocrewe/" newTab />
           <Button icon={MdOutlineEmail} to="mailto:ocrewe04@gmail.com" newTab />
